@@ -7,4 +7,5 @@
     <color name="white">#ffffff</color>
     <color name="text_placeholder">#c4c4c4</color>
     <color name="text_disable">#adadad</color>
+    <color name="soft_grey">#e7e7e7</color>
 </resources>
