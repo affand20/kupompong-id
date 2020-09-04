@@ -19,13 +19,8 @@ class AnakFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        anakViewModel =
-            ViewModelProviders.of(this).get(AnakViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_anak, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
-        anakViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+
         return root
     }
 }
