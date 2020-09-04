@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "15604070519",
+    "firebase_url": "https://kupompong.firebaseio.com",
+    "project_id": "kupompong",
+    "storage_bucket": "kupompong.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15604070519:android:0915dfad791890ae43ee72",
+        "android_client_info": {
+          "package_name": "id.trydev.kupompong"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "15604070519-ha5ai9l1l4j4c4vkn3055kml636gnjbj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcoy8lBeodEu0cg_4qqri9bs3byUuEQlE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "15604070519-ha5ai9l1l4j4c4vkn3055kml636gnjbj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

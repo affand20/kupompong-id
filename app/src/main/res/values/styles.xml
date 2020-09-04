@@ -1,0 +1,61 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="NoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="BaseHelvHeavy">
+        <item name="fontFamily">@font/helvetica_heavy</item>
+    </style>
+
+    <style name="BaseHelvMedium">
+        <item name="fontFamily">@font/helvetica_medium</item>
+    </style>
+
+    <style name="BaseHelvRoman">
+        <item name="fontFamily">@font/helvetica_roman</item>
+    </style>
+
+    <style name="BaseHelvLight">
+        <item name="fontFamily">@font/helvetica_light</item>
+    </style>
+
+    <style name="BaseGillSansMedium">
+        <item name="fontFamily">@font/gill_sans_medium</item>
+    </style>
+
+    <style name="BaseGillSansBold">
+        <item name="fontFamily">@font/gill_sans_bold</item>
+    </style>
+
+
+    <style name="BaseHelvHeavy.TitleText">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="BaseHelvHeavy.SubTitle">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="BaseHelvLight.TextForm">
+        <item name="android:textColor">@color/text_disable</item>
+    </style>
+
+    <style name="BaseHelvMedium.TextRegular">
+
+    </style>
+
+    <style name="BaseHelvRoman.TextPlaceholder">
+        <item name="android:textColor">@color/text_placeholder</item>
+    </style>
+
+</resources>
