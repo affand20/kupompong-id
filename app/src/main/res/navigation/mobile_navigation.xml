@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_terapi">
+    app:startDestination="@id/navigation_terapi">
 
     <fragment
         android:id="@+id/navigation_terapi"
@@ -22,4 +22,9 @@
         android:name="id.trydev.kupompong.ui.anak.AnakFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_anak" />
+    <fragment
+        android:id="@+id/navigation_tambah_anak"
+        android:name="id.trydev.kupompong.ui.anak.tambah.TambahAnakFragment"
+        android:label="tambah_anak_fragment"
+        tools:layout="@layout/fragment_tambah_anak" />
 </navigation>
