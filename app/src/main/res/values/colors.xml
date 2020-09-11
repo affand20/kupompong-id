@@ -5,7 +5,9 @@
     <color name="colorAccent">#111011</color>
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
+    <color name="white_trans">#9FFFFFFF</color>
     <color name="text_placeholder">#c4c4c4</color>
     <color name="text_disable">#adadad</color>
     <color name="soft_grey">#e7e7e7</color>
+    <color name="colorBlackTrans">#59111011</color>
 </resources>

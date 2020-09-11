@@ -27,4 +27,9 @@
         android:name="id.trydev.kupompong.ui.anak.tambah.TambahAnakFragment"
         android:label="tambah_anak_fragment"
         tools:layout="@layout/fragment_tambah_anak" />
+    <fragment
+        android:id="@+id/tambahMateriFragment"
+        android:name="id.trydev.kupompong.ui.materi.create.TambahMateriFragment"
+        android:label="fragment_tambah_materi"
+        tools:layout="@layout/fragment_tambah_materi" />
 </navigation>
