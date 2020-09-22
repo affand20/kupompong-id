@@ -1,5 +1,6 @@
 package id.trydev.kupompong.ui.materi
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import id.trydev.kupompong.R
+import id.trydev.kupompong.ui.materi.tambah.TambahMateriActivity
+import kotlinx.android.synthetic.main.fragment_materi.*
 
 class MateriFragment : Fragment() {
 
@@ -27,5 +30,15 @@ class MateriFragment : Fragment() {
 //            textView.text = it
 //        })
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        fab_add.setOnClickListener {
+            startActivity(
+                Intent(requireContext(), TambahMateriActivity::class.java)
+            )
+        }
     }
 }

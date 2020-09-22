@@ -23,11 +23,6 @@
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_anak" />
     <fragment
-        android:id="@+id/navigation_tambah_anak"
-        android:name="id.trydev.kupompong.ui.anak.tambah.TambahAnakFragment"
-        android:label="tambah_anak_fragment"
-        tools:layout="@layout/fragment_tambah_anak" />
-    <fragment
         android:id="@+id/tambahMateriFragment"
         android:name="id.trydev.kupompong.ui.materi.create.TambahMateriFragment"
         android:label="fragment_tambah_materi"

@@ -8,7 +8,7 @@
     android:clickable="true"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".ui.anak.tambah.TambahAnakFragment">
+    tools:context=".ui.anak.tambah.TambahAnakActivity">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -46,16 +46,18 @@
 
 
     <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:clickable="true"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5">
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -73,58 +75,165 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/imageView4"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_profil"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_marginTop="32dp"
                 android:background="@drawable/photo_placeholder"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:scaleType="centerCrop"
                 android:src="@drawable/ic_user"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <ImageButton
+                android:id="@+id/add_img_profil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_circle_primary"
+                android:padding="8dp"
+                android:src="@drawable/ic_add"
+                app:layout_constraintBottom_toBottomOf="@+id/img_profil"
+                app:layout_constraintEnd_toEndOf="@+id/img_profil"
+                app:layout_constraintStart_toEndOf="@+id/img_profil" />
+
 
             <EditText
                 android:id="@+id/edt_nama"
-                style="@style/BaseHelvLight.TextForm"
+                style="@style/BaseHelvRoman"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="24dp"
-                android:hint="Cari Materi"
+                android:hint="Nama Lengkap"
                 android:inputType="text"
                 android:maxLines="1"
                 android:textColor="@color/black"
                 android:textColorHint="@color/text_placeholder"
-                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+                app:layout_constraintTop_toBottomOf="@+id/img_profil" />
 
             <EditText
-                android:id="@+id/edt_ttl"
-                style="@style/BaseHelvLight.TextForm"
+                android:id="@+id/edt_tempat_lahir"
+                style="@style/BaseHelvRoman"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="24dp"
-                android:hint="Tempat dan Tanggal Lahir"
+                android:hint="Tempat Lahir"
                 android:inputType="text"
                 android:maxLines="1"
                 android:textColor="@color/black"
                 android:textColorHint="@color/text_placeholder"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/edt_tgl_lahir"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edt_nama" />
 
             <EditText
+                android:id="@+id/edt_tgl_lahir"
+                style="@style/BaseHelvRoman"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="24dp"
+                android:hint="Tanggal Lahir"
+                android:inputType="date"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textColorHint="@color/text_placeholder"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/edt_tempat_lahir"
+                app:layout_constraintTop_toBottomOf="@+id/edt_nama" />
+
+            <!--            <EditText-->
+            <!--                android:id="@+id/edt_tgl"-->
+            <!--                style="@style/BaseHelvRoman"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="16dp"-->
+            <!--                android:hint="88"-->
+            <!--                android:inputType="number"-->
+            <!--                android:maxLines="1"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:textColorHint="@color/text_placeholder"-->
+            <!--                app:layout_constraintEnd_toStartOf="@+id/textView"-->
+            <!--                app:layout_constraintHorizontal_bias="0.5"-->
+            <!--                app:layout_constraintHorizontal_chainStyle="spread"-->
+            <!--                app:layout_constraintStart_toEndOf="@+id/edt_ttl"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/edt_nama" />-->
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/textView"-->
+            <!--                style="@style/BaseHelvRoman"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="/"-->
+            <!--                android:textColorHint="@color/text_placeholder"-->
+            <!--                app:layout_constraintBottom_toBottomOf="@+id/edt_tgl"-->
+            <!--                app:layout_constraintEnd_toStartOf="@+id/edt_bln"-->
+            <!--                app:layout_constraintHorizontal_bias="0.5"-->
+            <!--                app:layout_constraintStart_toEndOf="@+id/edt_tgl"-->
+            <!--                app:layout_constraintTop_toTopOf="@+id/edt_tgl" />-->
+
+            <!--            <EditText-->
+            <!--                android:id="@+id/edt_bln"-->
+            <!--                style="@style/BaseHelvRoman"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="16dp"-->
+            <!--                android:hint="88"-->
+            <!--                android:inputType="number"-->
+            <!--                android:maxLines="1"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:textColorHint="@color/text_placeholder"-->
+            <!--                app:layout_constraintEnd_toStartOf="@+id/textView15"-->
+            <!--                app:layout_constraintHorizontal_bias="0.5"-->
+            <!--                app:layout_constraintStart_toEndOf="@+id/textView"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/edt_nama" />-->
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/textView15"-->
+            <!--                style="@style/BaseHelvRoman"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="/"-->
+            <!--                android:textColorHint="@color/text_placeholder"-->
+            <!--                app:layout_constraintBottom_toBottomOf="@+id/edt_bln"-->
+            <!--                app:layout_constraintEnd_toStartOf="@+id/edt_thn"-->
+            <!--                app:layout_constraintHorizontal_bias="0.5"-->
+            <!--                app:layout_constraintStart_toEndOf="@+id/edt_bln"-->
+            <!--                app:layout_constraintTop_toTopOf="@+id/edt_bln"-->
+            <!--                app:layout_constraintVertical_bias="0.516" />-->
+
+            <!--            <EditText-->
+            <!--                android:id="@+id/edt_thn"-->
+            <!--                style="@style/BaseHelvRoman"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="16dp"-->
+            <!--                android:layout_marginEnd="24dp"-->
+            <!--                android:hint="8888"-->
+            <!--                android:inputType="number"-->
+            <!--                android:maxLines="1"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:textColorHint="@color/text_placeholder"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintHorizontal_bias="0.5"-->
+            <!--                app:layout_constraintStart_toEndOf="@+id/textView15"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/edt_nama" />-->
+
+            <EditText
                 android:id="@+id/edt_alamat"
-                style="@style/BaseHelvLight.TextForm"
+                style="@style/BaseHelvRoman"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -135,14 +244,13 @@
                 android:maxLines="1"
                 android:textColor="@color/black"
                 android:textColorHint="@color/text_placeholder"
-                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edt_ttl" />
+                app:layout_constraintTop_toBottomOf="@+id/edt_tempat_lahir" />
 
             <EditText
                 android:id="@+id/edt_pendidikan"
-                style="@style/BaseHelvLight.TextForm"
+                style="@style/BaseHelvRoman"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -153,7 +261,6 @@
                 android:maxLines="1"
                 android:textColor="@color/black"
                 android:textColorHint="@color/text_placeholder"
-                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edt_alamat" />
@@ -172,7 +279,7 @@
 
             <EditText
                 android:id="@+id/edt_motorik"
-                style="@style/BaseHelvLight.TextForm"
+                style="@style/BaseHelvRoman"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -183,14 +290,13 @@
                 android:maxLines="1"
                 android:textColor="@color/black"
                 android:textColorHint="@color/text_placeholder"
-                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
             <EditText
                 android:id="@+id/edt_bahasa"
-                style="@style/BaseHelvLight.TextForm"
+                style="@style/BaseHelvRoman"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -201,14 +307,13 @@
                 android:maxLines="1"
                 android:textColor="@color/black"
                 android:textColorHint="@color/text_placeholder"
-                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edt_motorik" />
 
             <EditText
                 android:id="@+id/edt_diagnosis"
-                style="@style/BaseHelvLight.TextForm"
+                style="@style/BaseHelvRoman"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -219,14 +324,13 @@
                 android:maxLines="1"
                 android:textColor="@color/black"
                 android:textColorHint="@color/text_placeholder"
-                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edt_bahasa" />
 
             <EditText
                 android:id="@+id/edt_gejala"
-                style="@style/BaseHelvLight.TextForm"
+                style="@style/BaseHelvRoman"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -237,14 +341,13 @@
                 android:maxLines="1"
                 android:textColor="@color/black"
                 android:textColorHint="@color/text_placeholder"
-                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edt_diagnosis" />
 
             <EditText
                 android:id="@+id/edt_riwayat_terapi"
-                style="@style/BaseHelvLight.TextForm"
+                style="@style/BaseHelvRoman"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -255,14 +358,13 @@
                 android:maxLines="1"
                 android:textColor="@color/black"
                 android:textColorHint="@color/text_placeholder"
-                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edt_gejala" />
 
             <EditText
                 android:id="@+id/edt_medical_treatment"
-                style="@style/BaseHelvLight.TextForm"
+                style="@style/BaseHelvRoman"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -273,27 +375,36 @@
                 android:maxLines="1"
                 android:textColor="@color/black"
                 android:textColorHint="@color/text_placeholder"
-                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edt_riwayat_terapi" />
 
             <Button
                 android:id="@+id/btn_submit"
-                app:layout_constraintTop_toBottomOf="@id/edt_medical_treatment"
-                app:layout_constraintBottom_toBottomOf="parent"
+                style="@style/BaseHelvHeavy.TitleText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="40dp"
+                android:layout_marginEnd="24dp"
                 android:layout_marginBottom="32dp"
                 android:background="@drawable/round_primary_btn"
                 android:text="Tambahkan"
                 android:textAllCaps="false"
-                style="@style/BaseHelvHeavy.TitleText"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edt_medical_treatment" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/btn_submit"
+                app:layout_constraintEnd_toEndOf="@id/btn_submit"
+                app:layout_constraintStart_toStartOf="@id/btn_submit"
+                app:layout_constraintTop_toTopOf="@id/btn_submit" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
