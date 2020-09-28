@@ -54,6 +54,10 @@ class AnakFragment : Fragment() {
         fab_add.setOnClickListener {
             startActivity(Intent(requireActivity(), TambahAnakActivity::class.java))
         }
+
+        swipe_refresh.setOnRefreshListener {
+            loadData()
+        }
     }
 
     private fun showLoading() {

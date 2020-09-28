@@ -4,6 +4,7 @@ import java.io.Serializable
 
 data class Anak (
 
+    var id: String? = null,
     var fullName: String? = null,
     var birthPlace: String? = null,
     var dateOfBirth: String? = null,
