@@ -10,4 +10,5 @@
     <color name="text_disable">#adadad</color>
     <color name="soft_grey">#e7e7e7</color>
     <color name="colorBlackTrans">#59111011</color>
+    <color name="red">#FF006F</color>
 </resources>

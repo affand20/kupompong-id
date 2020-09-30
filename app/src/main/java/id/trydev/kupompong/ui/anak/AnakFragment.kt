@@ -14,6 +14,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import id.trydev.kupompong.R
 import id.trydev.kupompong.adapter.DaftarAnakAdapter
 import id.trydev.kupompong.model.Anak
+import id.trydev.kupompong.ui.anak.detail.DetailAnakActivity
 import id.trydev.kupompong.ui.anak.tambah.TambahAnakActivity
 import kotlinx.android.synthetic.main.fragment_anak.*
 
@@ -43,7 +44,7 @@ class AnakFragment : Fragment() {
 
         adapter = DaftarAnakAdapter(requireContext()) {
             startActivity(
-                Intent(requireActivity(), TambahAnakActivity::class.java)
+                Intent(requireActivity(), DetailAnakActivity::class.java)
                     .putExtra("data_anak", it)
             )
         }

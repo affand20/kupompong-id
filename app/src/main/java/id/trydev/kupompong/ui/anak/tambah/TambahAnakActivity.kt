@@ -50,7 +50,11 @@ class TambahAnakActivity : AppCompatActivity(), EasyPermissions.PermissionCallba
             if (validate()) {
                 showLoading()
 
-                val photoRef = mStorage.getReference("anak")
+                val dataPath = mFirestore.collection("anak")
+                val key = dataPath.document().id
+
+                val storagePath = "anak/${imageUri?.path?.split("/")?.last()}"
+                val photoRef = mStorage.getReference(storagePath)
                 photoRef.putFile(imageUri as Uri).
                         continueWithTask {task ->
                             if (!task.isSuccessful) {
@@ -63,6 +67,7 @@ class TambahAnakActivity : AppCompatActivity(), EasyPermissions.PermissionCallba
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
                             val anak = Anak(
+                                key,
                                 edt_nama.text.toString(),
                                 edt_tempat_lahir.text.toString(),
                                 edt_tgl_lahir.text.toString(),
@@ -74,10 +79,11 @@ class TambahAnakActivity : AppCompatActivity(), EasyPermissions.PermissionCallba
                                 edt_gejala.text.toString(),
                                 edt_riwayat_terapi.text.toString(),
                                 edt_medical_treatment.text.toString(),
+                                storagePath,
                                 it.result.toString()
                             )
-                            mFirestore.collection("anak")
-                                .add(anak)
+                            dataPath.document(key)
+                                .set(anak)
                                 .addOnSuccessListener {
                                     hideLoading()
                                     finish()
@@ -98,7 +104,7 @@ class TambahAnakActivity : AppCompatActivity(), EasyPermissions.PermissionCallba
 
     private fun showLoading() {
         progress_bar.visibility = View.VISIBLE
-        btn_submit.visibility = View.GONE
+        btn_submit.visibility = View.INVISIBLE
         edt_nama.isEnabled = false
         edt_tempat_lahir.isEnabled = false
         edt_tgl_lahir.isEnabled = false

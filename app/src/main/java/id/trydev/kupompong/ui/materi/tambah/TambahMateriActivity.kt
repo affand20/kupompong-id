@@ -8,7 +8,6 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.MenuItem
 import android.view.View
 import android.widget.PopupMenu
 import android.widget.Toast
@@ -22,12 +21,11 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import id.trydev.kupompong.R
 import id.trydev.kupompong.adapter.PilihanAdapter
-import id.trydev.kupompong.model.Anak
 import id.trydev.kupompong.model.PilihanMateri
 import id.trydev.kupompong.utils.GlideApp
+import id.trydev.kupompong.utils.Mode
 import kotlinx.android.synthetic.main.activity_tambah_materi.*
 import kotlinx.android.synthetic.main.activity_tambah_materi.btn_back
-import kotlinx.android.synthetic.main.fragment_anak.*
 import pub.devrel.easypermissions.AfterPermissionGranted
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
@@ -41,10 +39,6 @@ class TambahMateriActivity : AppCompatActivity(), EasyPermissions.PermissionCall
         const val rcAudio = 103
     }
 
-    enum class MODE {
-        CREATE, EDIT, EDIT_FILLED
-    }
-
     private var imageUri: Uri? = null
     private var audioUri: Uri? = null
     private val mFirestore = FirebaseFirestore.getInstance()
@@ -56,7 +50,7 @@ class TambahMateriActivity : AppCompatActivity(), EasyPermissions.PermissionCall
 
     private lateinit var adapter: PilihanAdapter
 
-    private var mode = MODE.CREATE
+    private var mode = Mode.CREATE
     private var pilihan: PilihanMateri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -149,7 +143,7 @@ class TambahMateriActivity : AppCompatActivity(), EasyPermissions.PermissionCall
         }
 
         btn_play.setOnClickListener {
-            if (mode == MODE.CREATE) {
+            if (mode == Mode.CREATE) {
                 if (audioUri != null) {
                     if (!player.isPlaying) {
                         player.reset()
@@ -186,11 +180,11 @@ class TambahMateriActivity : AppCompatActivity(), EasyPermissions.PermissionCall
         }
 
         btn_simpan_pilihan.setOnClickListener {
-            Log.d("MODE", "$mode")
+            Log.d("Mode", "$mode")
             if (player.isPlaying) {
                 player.stop()
             }
-            if (mode == MODE.CREATE) {
+            if (mode == Mode.CREATE) {
                 if (validate()) {
                     showLoading("submit_opt")
                     uploadImageAudio(imageUri.toString().toUri(), audioUri.toString().toUri())
@@ -349,7 +343,7 @@ class TambahMateriActivity : AppCompatActivity(), EasyPermissions.PermissionCall
 
     private fun setItem(item: PilihanMateri) {
         this.pilihan = item
-        mode = MODE.EDIT
+        mode = Mode.EDIT
 
         edt_option_text.setText(item.caption)
         iv_input_img.setPadding(0)
@@ -440,7 +434,7 @@ class TambahMateriActivity : AppCompatActivity(), EasyPermissions.PermissionCall
         iv_input_img.setImageResource(0)
         iv_input_img.setBackgroundResource(R.drawable.round_img_input_materi)
         pilihan = null
-        mode = MODE.CREATE
+        mode = Mode.CREATE
     }
 
     private fun showLoading(type: String) {
@@ -501,7 +495,7 @@ class TambahMateriActivity : AppCompatActivity(), EasyPermissions.PermissionCall
     }
 
     private fun validate(): Boolean {
-        if (mode == MODE.CREATE) {
+        if (mode == Mode.CREATE) {
             if (imageUri == null) {
                 Toast.makeText(this, "Anda belum memilih gambar", Toast.LENGTH_LONG).show()
                 return false
@@ -567,8 +561,8 @@ class TambahMateriActivity : AppCompatActivity(), EasyPermissions.PermissionCall
 
         if (resultCode == Activity.RESULT_OK && data!=null) {
             if (requestCode == rcChoose) {
-                if (mode == MODE.EDIT) {
-                    mode = MODE.EDIT_FILLED
+                if (mode == Mode.EDIT) {
+                    mode = Mode.EDIT_FILLED
                 }
                 tv_state_upload_img.visibility = View.GONE
                 iv_input_img.setPadding(0)
@@ -579,8 +573,8 @@ class TambahMateriActivity : AppCompatActivity(), EasyPermissions.PermissionCall
                     .into(iv_input_img)
                     this.imageUri = data.data
             } else if (requestCode == rcAudio) {
-                if (mode == MODE.EDIT) {
-                    mode = MODE.EDIT_FILLED
+                if (mode == Mode.EDIT) {
+                    mode = Mode.EDIT_FILLED
                 }
 
                 this.audioUri = data.data

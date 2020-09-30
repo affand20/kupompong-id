@@ -16,6 +16,7 @@ data class Anak (
     var gejala: String? = null,
     var history: String? = null,
     var medicalTreatment: String? = null,
+    var imgPath: String? = null,
     var photoUrl: String? = null
 
 ): Serializable
