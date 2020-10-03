@@ -7,19 +7,7 @@
     android:background="@color/white_trans"
     android:layout_height="wrap_content">
 
-    <ImageButton
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="24dp"
-        android:id="@+id/btn_filter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/round_btn_black"
-        android:src="@drawable/ic_filter_white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
-        android:layout_marginEnd="24dp"
         android:id="@+id/edt_search"
         style="@style/BaseHelvRoman.TextPlaceholder"
         android:layout_width="0dp"
@@ -28,25 +16,30 @@
         android:background="@drawable/search_box_8dp_outlined"
         android:drawableStart="@drawable/ic_search"
         android:drawablePadding="16dp"
-        android:hint="Cari Anak"
+        android:hint="Cari Materi"
         android:inputType="text"
         android:maxLines="1"
         android:padding="10dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_goneMarginStart="24dp"
         android:textColor="@color/black"
         android:textColorHint="@color/text_placeholder"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_filter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_filter"
-        app:layout_constraintTop_toTopOf="@+id/btn_filter" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_anak"
+        android:id="@+id/rv_materi"
         android:layout_width="0dp"
         android:layout_height="500dp"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
-        tools:listitem="@layout/item_anak_lite"
+        tools:listitem="@layout/item_materi_lite"
+        app:spanCount="3"
+        tools:itemCount="9"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +60,7 @@
         style="@style/BaseHelvRoman"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Belum ada data anak disini :("
+        android:text="Belum ada data materi disini :("
         android:textColor="@color/text_disable"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"

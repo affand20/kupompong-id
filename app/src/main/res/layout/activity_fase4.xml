@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.terapi.fase4.Fase4Fragment">
+    tools:context=".ui.terapi.fase4.Fase4Activity">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -31,6 +31,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
+        android:id="@+id/view5"
         android:layout_width="0dp"
         android:layout_height="20dp"
         android:background="@color/text_disable"
@@ -45,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:text="Template Materi"
+        android:text="Fase 4"
         app:layout_constraintBottom_toBottomOf="@+id/btn_back"
         app:layout_constraintStart_toEndOf="@+id/btn_back"
         app:layout_constraintTop_toTopOf="@+id/btn_back" />
@@ -118,6 +119,57 @@
         app:layout_constraintStart_toEndOf="@+id/textView11"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pilihan_jawaban"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/textView12"
+        app:layout_constraintEnd_toEndOf="@+id/textView12"
+        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintTop_toTopOf="@+id/textView12">
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/round_img_input_materi"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_clip_materi_item"
+            android:paddingStart="2dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="2dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_img"
+            app:layout_constraintEnd_toEndOf="@+id/iv_img"
+            app:layout_constraintStart_toStartOf="@+id/iv_img"
+            tools:text="tes" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--    <ImageButton-->
+<!--        android:visibility="gone"-->
+<!--        android:id="@+id/btn_remove_pilihan"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/btn_circle_accent"-->
+<!--        android:src="@drawable/ic_close"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/textView12"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/textView12"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/textView12" />-->
+
     <ImageButton
         android:id="@+id/btn_play"
         android:layout_width="wrap_content"
@@ -147,6 +199,7 @@
 
     <ImageButton
         android:id="@+id/btn_timer"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
@@ -175,15 +228,28 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_item_jawaban"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_height="0dp"
         android:nestedScrollingEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13"
         app:spanCount="2"
         tools:itemCount="10"
         tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         tools:listitem="@layout/item_pilihan_jawaban" />
+
+    <ProgressBar
+        android:visibility="gone"
+        android:indeterminateTint="@color/colorPrimaryDark"
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rv_item_jawaban" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

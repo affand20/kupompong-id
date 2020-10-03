@@ -1,5 +1,7 @@
 package id.trydev.kupompong.model
 
+import java.io.Serializable
+
 data class PilihanMateri (
 
     var id: String? = null,
@@ -9,4 +11,4 @@ data class PilihanMateri (
     var audioUrl: String? = null,
     var audioPath: String? = null
 
-)
+): Serializable

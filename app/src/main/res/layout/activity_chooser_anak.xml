@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white_trans"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    tools:context=".ui.terapi.chooser.ChooserAnakActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_judul"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="4dp"
+        app:titleTextColor="@android:color/black">
+
+    </androidx.appcompat.widget.Toolbar>
 
     <ImageButton
         android:layout_marginTop="24dp"
@@ -16,7 +28,7 @@
         android:background="@drawable/round_btn_black"
         android:src="@drawable/ic_filter_white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar_judul" />
 
     <EditText
         android:layout_marginEnd="24dp"
@@ -25,7 +37,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:background="@drawable/search_box_8dp_outlined"
+        android:background="@drawable/search_box_8dp"
         android:drawableStart="@drawable/ic_search"
         android:drawablePadding="16dp"
         android:hint="Cari Anak"
@@ -43,9 +55,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_anak"
         android:layout_width="0dp"
-        android:layout_height="500dp"
+        android:layout_height="0dp"
         android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
         tools:listitem="@layout/item_anak_lite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -74,7 +85,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
