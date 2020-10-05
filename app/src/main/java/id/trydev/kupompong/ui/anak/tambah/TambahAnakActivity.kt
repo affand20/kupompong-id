@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.RadioButton
 import android.widget.Toast
 import androidx.core.view.setPadding
 import com.google.firebase.firestore.FirebaseFirestore
@@ -15,10 +16,27 @@ import com.google.firebase.storage.FirebaseStorage
 import id.trydev.kupompong.R
 import id.trydev.kupompong.model.Anak
 import kotlinx.android.synthetic.main.activity_anak.*
+import kotlinx.android.synthetic.main.activity_anak.add_img_profil
+import kotlinx.android.synthetic.main.activity_anak.btn_back
+import kotlinx.android.synthetic.main.activity_anak.btn_submit
+import kotlinx.android.synthetic.main.activity_anak.edt_alamat
+import kotlinx.android.synthetic.main.activity_anak.edt_bahasa
+import kotlinx.android.synthetic.main.activity_anak.edt_diagnosis
+import kotlinx.android.synthetic.main.activity_anak.edt_gejala
+import kotlinx.android.synthetic.main.activity_anak.edt_medical_treatment
+import kotlinx.android.synthetic.main.activity_anak.edt_motorik
+import kotlinx.android.synthetic.main.activity_anak.edt_nama
+import kotlinx.android.synthetic.main.activity_anak.edt_pendidikan
+import kotlinx.android.synthetic.main.activity_anak.edt_riwayat_terapi
+import kotlinx.android.synthetic.main.activity_anak.edt_tempat_lahir
+import kotlinx.android.synthetic.main.activity_anak.edt_tgl_lahir
+import kotlinx.android.synthetic.main.activity_anak.edt_umur
+import kotlinx.android.synthetic.main.activity_anak.img_profil
+import kotlinx.android.synthetic.main.activity_anak.progress_bar
+import kotlinx.android.synthetic.main.activity_anak.radioGroup
 import pub.devrel.easypermissions.AfterPermissionGranted
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
-import java.io.File
 
 class TambahAnakActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
@@ -71,6 +89,8 @@ class TambahAnakActivity : AppCompatActivity(), EasyPermissions.PermissionCallba
                                 edt_nama.text.toString(),
                                 edt_tempat_lahir.text.toString(),
                                 edt_tgl_lahir.text.toString(),
+                                findViewById<RadioButton>(radioGroup.checkedRadioButtonId).text.toString(),
+                                edt_umur.text.toString().toInt(),
                                 edt_alamat.text.toString(),
                                 edt_pendidikan.text.toString(),
                                 edt_motorik.text.toString(),
@@ -108,6 +128,10 @@ class TambahAnakActivity : AppCompatActivity(), EasyPermissions.PermissionCallba
         edt_nama.isEnabled = false
         edt_tempat_lahir.isEnabled = false
         edt_tgl_lahir.isEnabled = false
+        radioGroup.isEnabled = false
+        jk_lk.isEnabled = false
+        jk_pr.isEnabled = false
+        edt_umur.isEnabled = false
         edt_alamat.isEnabled = false
         edt_pendidikan.isEnabled = false
         edt_motorik.isEnabled = false
@@ -124,6 +148,10 @@ class TambahAnakActivity : AppCompatActivity(), EasyPermissions.PermissionCallba
         edt_nama.isEnabled = true
         edt_tempat_lahir.isEnabled = true
         edt_tgl_lahir.isEnabled = true
+        radioGroup.isEnabled = true
+        jk_lk.isEnabled = false
+        jk_pr.isEnabled = false
+        edt_umur.isEnabled = true
         edt_alamat.isEnabled = true
         edt_pendidikan.isEnabled = true
         edt_motorik.isEnabled = true
@@ -149,6 +177,17 @@ class TambahAnakActivity : AppCompatActivity(), EasyPermissions.PermissionCallba
         if (edt_tgl_lahir.text.isEmpty()) {
             edt_tgl_lahir.requestFocus()
             edt_tgl_lahir.error = "Wajib diisi"
+            return false
+        }
+
+        if (radioGroup.checkedRadioButtonId == -1) {
+            Toast.makeText(this, "Mohon pilih jenis kelamin terlebih dahulu!", Toast.LENGTH_LONG).show()
+            return false
+        }
+
+        if (edt_umur.text.isEmpty()) {
+            edt_umur.requestFocus()
+            edt_umur.error = "Wajib diisi"
             return false
         }
 

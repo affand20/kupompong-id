@@ -2,6 +2,8 @@ package id.trydev.kupompong.ui.terapi
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -231,6 +233,24 @@ class TerapiFragment : Fragment() {
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
             recyclerView.adapter = adapterAnak
             builder.setView(dialogView)
+
+            searchBox.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+                }
+
+                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                    val listFiltered = listAnak.filter {
+                        it.fullName.toString().toLowerCase().contains(p0.toString())
+                    }
+                    adapterAnak.setData(listFiltered)
+                }
+
+                override fun afterTextChanged(p0: Editable?) {
+
+                }
+
+            })
         }
 
         if (type == "materi") {
@@ -244,6 +264,24 @@ class TerapiFragment : Fragment() {
             recyclerView.layoutManager = GridLayoutManager(requireContext(),3)
             recyclerView.adapter = adapterMateri
             builder.setView(dialogView)
+
+            searchBox.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+                }
+
+                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                    val listFiltered = listMateri.filter {
+                        it.judul.toString().toLowerCase().contains(p0.toString())
+                    }
+                    adapterMateri.setData(listFiltered)
+                }
+
+                override fun afterTextChanged(p0: Editable?) {
+
+                }
+
+            })
         }
 
         if (type == "fase") {

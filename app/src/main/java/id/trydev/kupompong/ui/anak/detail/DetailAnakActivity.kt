@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.net.toUri
@@ -19,7 +20,6 @@ import id.trydev.kupompong.model.Anak
 import id.trydev.kupompong.ui.anak.tambah.TambahAnakActivity
 import id.trydev.kupompong.utils.GlideApp
 import id.trydev.kupompong.utils.Mode
-import kotlinx.android.synthetic.main.activity_anak.*
 import kotlinx.android.synthetic.main.activity_detail_anak.*
 import kotlinx.android.synthetic.main.activity_detail_anak.add_img_profil
 import kotlinx.android.synthetic.main.activity_detail_anak.btn_back
@@ -120,6 +120,12 @@ class DetailAnakActivity : AppCompatActivity(), EasyPermissions.PermissionCallba
                     }
                     if (edt_tgl_lahir.text.toString() != data.dateOfBirth) {
                         mapUpdate["dateOfBirth"] = edt_tgl_lahir.text.toString()
+                    }
+                    if (findViewById<RadioButton>(radioGroup.checkedRadioButtonId).text != data.gender) {
+                        mapUpdate["gender"] = findViewById<RadioButton>(radioGroup.checkedRadioButtonId).text.toString()
+                    }
+                    if (edt_umur.text.toString() != data.old.toString()) {
+                        mapUpdate["old"] = edt_umur.text.toString().toInt()
                     }
                     if (edt_alamat.text.toString() != data.address) {
                         mapUpdate["address"] = edt_alamat.text.toString()
@@ -258,6 +264,12 @@ class DetailAnakActivity : AppCompatActivity(), EasyPermissions.PermissionCallba
         edt_nama.setText(item.fullName)
         edt_tempat_lahir.setText(item.birthPlace)
         edt_tgl_lahir.setText(item.dateOfBirth)
+        if (item.gender == "Laki-laki") {
+            jk_lk.isChecked = true
+        } else {
+            jk_pr.isChecked = true
+        }
+        edt_umur.setText(item.old.toString())
         edt_alamat.setText(item.address)
         edt_pendidikan.setText(item.education)
         edt_motorik.setText(item.motorik)
@@ -303,6 +315,10 @@ class DetailAnakActivity : AppCompatActivity(), EasyPermissions.PermissionCallba
         edt_nama.isEnabled = false
         edt_tempat_lahir.isEnabled = false
         edt_tgl_lahir.isEnabled = false
+        radioGroup.isEnabled = false
+        jk_lk.isEnabled = false
+        jk_pr.isEnabled = false
+        edt_umur.isEnabled = false
         edt_alamat.isEnabled = false
         edt_pendidikan.isEnabled = false
         edt_motorik.isEnabled = false
@@ -321,6 +337,10 @@ class DetailAnakActivity : AppCompatActivity(), EasyPermissions.PermissionCallba
         edt_nama.isEnabled = true
         edt_tempat_lahir.isEnabled = true
         edt_tgl_lahir.isEnabled = true
+        radioGroup.isEnabled = true
+        jk_lk.isEnabled = false
+        jk_pr.isEnabled = false
+        edt_umur.isEnabled = true
         edt_alamat.isEnabled = true
         edt_pendidikan.isEnabled = true
         edt_motorik.isEnabled = true
@@ -345,6 +365,8 @@ class DetailAnakActivity : AppCompatActivity(), EasyPermissions.PermissionCallba
         edt_nama.isEnabled = false
         edt_tempat_lahir.isEnabled = false
         edt_tgl_lahir.isEnabled = false
+        radioGroup.isEnabled = false
+        edt_umur.isEnabled = false
         edt_alamat.isEnabled = false
         edt_pendidikan.isEnabled = false
         edt_motorik.isEnabled = false
@@ -365,6 +387,8 @@ class DetailAnakActivity : AppCompatActivity(), EasyPermissions.PermissionCallba
         edt_nama.isEnabled = true
         edt_tempat_lahir.isEnabled = true
         edt_tgl_lahir.isEnabled = true
+        radioGroup.isEnabled = true
+        edt_umur.isEnabled = true
         edt_alamat.isEnabled = true
         edt_pendidikan.isEnabled = true
         edt_motorik.isEnabled = true
@@ -390,6 +414,17 @@ class DetailAnakActivity : AppCompatActivity(), EasyPermissions.PermissionCallba
         if (edt_tgl_lahir.text.isEmpty()) {
             edt_tgl_lahir.requestFocus()
             edt_tgl_lahir.error = "Wajib diisi"
+            return false
+        }
+
+        if (radioGroup.checkedRadioButtonId == -1) {
+            Toast.makeText(this, "Mohon pilih jenis kelamin terlebih dahulu!", Toast.LENGTH_LONG).show()
+            return false
+        }
+
+        if (edt_umur.text.isEmpty()) {
+            edt_umur.requestFocus()
+            edt_umur.error = "Wajib diisi"
             return false
         }
 

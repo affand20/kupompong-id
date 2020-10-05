@@ -168,82 +168,60 @@
                 app:layout_constraintStart_toEndOf="@+id/edt_tempat_lahir"
                 app:layout_constraintTop_toBottomOf="@+id/edt_nama" />
 
-            <!--            <EditText-->
-            <!--                android:id="@+id/edt_tgl"-->
-            <!--                style="@style/BaseHelvRoman"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginTop="16dp"-->
-            <!--                android:hint="88"-->
-            <!--                android:inputType="number"-->
-            <!--                android:maxLines="1"-->
-            <!--                android:textColor="@color/black"-->
-            <!--                android:textColorHint="@color/text_placeholder"-->
-            <!--                app:layout_constraintEnd_toStartOf="@+id/textView"-->
-            <!--                app:layout_constraintHorizontal_bias="0.5"-->
-            <!--                app:layout_constraintHorizontal_chainStyle="spread"-->
-            <!--                app:layout_constraintStart_toEndOf="@+id/edt_ttl"-->
-            <!--                app:layout_constraintTop_toBottomOf="@+id/edt_nama" />-->
+            <TextView
+                android:id="@+id/textView16"
+                style="@style/BaseHelvRoman"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:text="Jenis Kelamin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_tempat_lahir" />
 
-            <!--            <TextView-->
-            <!--                android:id="@+id/textView"-->
-            <!--                style="@style/BaseHelvRoman"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:text="/"-->
-            <!--                android:textColorHint="@color/text_placeholder"-->
-            <!--                app:layout_constraintBottom_toBottomOf="@+id/edt_tgl"-->
-            <!--                app:layout_constraintEnd_toStartOf="@+id/edt_bln"-->
-            <!--                app:layout_constraintHorizontal_bias="0.5"-->
-            <!--                app:layout_constraintStart_toEndOf="@+id/edt_tgl"-->
-            <!--                app:layout_constraintTop_toTopOf="@+id/edt_tgl" />-->
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginStart="24dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView16">
 
-            <!--            <EditText-->
-            <!--                android:id="@+id/edt_bln"-->
-            <!--                style="@style/BaseHelvRoman"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginTop="16dp"-->
-            <!--                android:hint="88"-->
-            <!--                android:inputType="number"-->
-            <!--                android:maxLines="1"-->
-            <!--                android:textColor="@color/black"-->
-            <!--                android:textColorHint="@color/text_placeholder"-->
-            <!--                app:layout_constraintEnd_toStartOf="@+id/textView15"-->
-            <!--                app:layout_constraintHorizontal_bias="0.5"-->
-            <!--                app:layout_constraintStart_toEndOf="@+id/textView"-->
-            <!--                app:layout_constraintTop_toBottomOf="@+id/edt_nama" />-->
+                <RadioButton
+                    android:id="@+id/jk_lk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Laki-laki" />
 
-            <!--            <TextView-->
-            <!--                android:id="@+id/textView15"-->
-            <!--                style="@style/BaseHelvRoman"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:text="/"-->
-            <!--                android:textColorHint="@color/text_placeholder"-->
-            <!--                app:layout_constraintBottom_toBottomOf="@+id/edt_bln"-->
-            <!--                app:layout_constraintEnd_toStartOf="@+id/edt_thn"-->
-            <!--                app:layout_constraintHorizontal_bias="0.5"-->
-            <!--                app:layout_constraintStart_toEndOf="@+id/edt_bln"-->
-            <!--                app:layout_constraintTop_toTopOf="@+id/edt_bln"-->
-            <!--                app:layout_constraintVertical_bias="0.516" />-->
+                <RadioButton
+                    android:id="@+id/jk_pr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Perempuan" />
+            </RadioGroup>
 
-            <!--            <EditText-->
-            <!--                android:id="@+id/edt_thn"-->
-            <!--                style="@style/BaseHelvRoman"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginTop="16dp"-->
-            <!--                android:layout_marginEnd="24dp"-->
-            <!--                android:hint="8888"-->
-            <!--                android:inputType="number"-->
-            <!--                android:maxLines="1"-->
-            <!--                android:textColor="@color/black"-->
-            <!--                android:textColorHint="@color/text_placeholder"-->
-            <!--                app:layout_constraintEnd_toEndOf="parent"-->
-            <!--                app:layout_constraintHorizontal_bias="0.5"-->
-            <!--                app:layout_constraintStart_toEndOf="@+id/textView15"-->
-            <!--                app:layout_constraintTop_toBottomOf="@+id/edt_nama" />-->
+            <EditText
+                android:id="@+id/edt_umur"
+                style="@style/BaseHelvRoman"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:hint="Umur"
+                android:inputType="number"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textColorHint="@color/text_placeholder"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
             <EditText
                 android:id="@+id/edt_alamat"
@@ -254,13 +232,13 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="24dp"
                 android:hint="Alamat"
-                android:inputType="text"
+                android:inputType="textCapWords"
                 android:maxLines="1"
                 android:textColor="@color/black"
                 android:textColorHint="@color/text_placeholder"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edt_tempat_lahir" />
+                app:layout_constraintTop_toBottomOf="@+id/edt_umur" />
 
             <EditText
                 android:id="@+id/edt_pendidikan"

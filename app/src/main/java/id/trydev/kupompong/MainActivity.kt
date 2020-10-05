@@ -28,6 +28,8 @@ class MainActivity : AppCompatActivity() {
 //            )
 //        )
 
+        supportActionBar?.hide()
+
         chipNav.setItemSelected(R.id.navigation_terapi)
 
         chipNav.setOnItemSelectedListener {

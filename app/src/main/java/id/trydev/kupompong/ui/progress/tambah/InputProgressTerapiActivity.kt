@@ -54,6 +54,8 @@ class InputProgressTerapiActivity : AppCompatActivity() {
                     anak?.id,
                     anak?.fullName,
                     anak?.photoUrl,
+                    anak?.old,
+                    anak?.gender,
                     edt_topik.text.toString(),
                     spinner_prompt.selectedItem.toString(),
                     spinner_mastery.selectedItem.toString(),

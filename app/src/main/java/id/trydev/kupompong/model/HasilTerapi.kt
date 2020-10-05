@@ -11,6 +11,8 @@ data class HasilTerapi (
     var idAnak: String? = null,
     var namaAnak: String? = null,
     var photoUrl: String? = null,
+    var umurAnak: Int? = null,
+    var genderAnak: String? = null,
     var topik: String? = null,
     var levelOfPrompt: String? = null,
     var levelOfMastery: String? = null,

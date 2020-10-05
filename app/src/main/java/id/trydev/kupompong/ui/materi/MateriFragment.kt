@@ -2,6 +2,8 @@ package id.trydev.kupompong.ui.materi
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -10,33 +12,30 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
 import id.trydev.kupompong.R
 import id.trydev.kupompong.adapter.MateriAdapter
 import id.trydev.kupompong.model.Materi
 import id.trydev.kupompong.ui.materi.tambah.TambahMateriActivity
-import kotlinx.android.synthetic.main.dialog_tambah_materi.*
 import kotlinx.android.synthetic.main.fragment_materi.*
 import kotlinx.android.synthetic.main.fragment_materi.fab_add
 import kotlinx.android.synthetic.main.fragment_materi.state_empty
+import java.util.*
 
 class MateriFragment : Fragment() {
 
-    private lateinit var materiViewModel: MateriViewModel
-
     private lateinit var adapter: MateriAdapter
     private val mFirestore = FirebaseFirestore.getInstance()
+
+    private val listMateri = mutableListOf<Materi>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_materi, container, false)
-        return root
+        return inflater.inflate(R.layout.fragment_materi, container, false)
     }
 
     override fun onStart() {
@@ -62,6 +61,27 @@ class MateriFragment : Fragment() {
         swipe_refresh.setOnRefreshListener {
             getData()
         }
+
+        edt_search.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                val listFiltered = listMateri.filter {
+                    it.judul.toString().toLowerCase(Locale.getDefault()).contains(p0.toString().toLowerCase(Locale.getDefault()))
+                }
+
+                Log.d("FILTERED", "$listFiltered")
+
+                adapter.setData(listFiltered)
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+
+        })
 
 
         val builder = AlertDialog.Builder(requireActivity(), R.style.RoundAlertDialog)
@@ -138,11 +158,11 @@ class MateriFragment : Fragment() {
             .get()
             .addOnSuccessListener {
                 swipe_refresh.isRefreshing = false
-                val listData = mutableListOf<Materi>()
-                listData.addAll(it.toObjects(Materi::class.java))
-                Log.d("LOAD DATA", "$listData")
-                if (listData.size > 0) {
-                    adapter.setData(listData)
+                this.listMateri.clear()
+                listMateri.addAll(it.toObjects(Materi::class.java))
+                Log.d("LOAD DATA", "$listMateri")
+                if (listMateri.size > 0) {
+                    adapter.setData(listMateri)
                     rv_materi.visibility = View.VISIBLE
                     state_empty.visibility = View.GONE
                 } else {

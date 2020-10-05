@@ -8,6 +8,8 @@ data class Anak (
     var fullName: String? = null,
     var birthPlace: String? = null,
     var dateOfBirth: String? = null,
+    var gender: String? = null,
+    var old: Int? = null,
     var address: String? = null,
     var education: String? = null,
     var motorik: String? = null,
