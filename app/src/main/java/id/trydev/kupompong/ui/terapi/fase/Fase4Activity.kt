@@ -209,6 +209,9 @@ class Fase4Activity : AppCompatActivity() {
         }
 
         btn_done.setOnClickListener {
+            if (player.isPlaying) {
+                player.stop()
+            }
             startActivity(
                 Intent(this, InputProgressTerapiActivity::class.java)
                     .putExtra("anak", this.anak)

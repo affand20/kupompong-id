@@ -234,11 +234,14 @@ class Fase56Activity : AppCompatActivity() {
         btn_play.setOnClickListener {
             if (validate()) {
 
+                pos = 0
+
                 isPlaySoal = false
 
                 if (player.isPlaying) {
                     player.stop()
                 }
+
                 player.reset()
                 player.setDataSource(this, Uri.parse(RES_PREFIX+listAudio[pos]))
 
@@ -291,6 +294,9 @@ class Fase56Activity : AppCompatActivity() {
         }
 
         btn_done.setOnClickListener {
+            if (player.isPlaying) {
+                player.stop()
+            }
             startActivity(
                 Intent(this, InputProgressTerapiActivity::class.java)
                     .putExtra("anak", this.anak)

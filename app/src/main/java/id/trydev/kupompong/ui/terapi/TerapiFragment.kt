@@ -23,6 +23,7 @@ import id.trydev.kupompong.adapter.MateriAdapterLite
 import id.trydev.kupompong.model.Anak
 import id.trydev.kupompong.model.Fase
 import id.trydev.kupompong.model.Materi
+import id.trydev.kupompong.ui.progress.ProgressTerapiActivity
 import id.trydev.kupompong.ui.terapi.fase.Fase4Activity
 import id.trydev.kupompong.ui.terapi.fase.Fase56Activity
 import id.trydev.kupompong.utils.GlideApp
@@ -140,6 +141,25 @@ class TerapiFragment : Fragment() {
         if (pilihan_fase_level.visibility == View.VISIBLE) {
             triggerDialog("fase")
         }
+
+        tv_data_terapi.setOnClickListener {
+            startActivity(
+                Intent(requireContext(), ProgressTerapiActivity::class.java)
+            )
+        }
+
+        cv_data_terapi.setOnClickListener {
+            startActivity(
+                Intent(requireContext(), ProgressTerapiActivity::class.java)
+            )
+        }
+
+        iv_data_terapi.setOnClickListener {
+            startActivity(
+                Intent(requireContext(), ProgressTerapiActivity::class.java)
+            )
+        }
+
 
         btn_start_terapi.setOnClickListener {
             if (validate()) {

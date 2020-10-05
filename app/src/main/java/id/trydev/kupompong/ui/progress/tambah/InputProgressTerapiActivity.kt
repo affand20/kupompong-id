@@ -14,6 +14,7 @@ import id.trydev.kupompong.utils.GlideApp
 import kotlinx.android.synthetic.main.activity_input_progress_terapi.*
 import kotlinx.android.synthetic.main.activity_input_progress_terapi.btn_back
 import kotlinx.android.synthetic.main.activity_input_progress_terapi.progress_bar
+import java.util.*
 
 class InputProgressTerapiActivity : AppCompatActivity() {
 
@@ -52,21 +53,24 @@ class InputProgressTerapiActivity : AppCompatActivity() {
                     id,
                     anak?.id,
                     anak?.fullName,
+                    anak?.photoUrl,
                     edt_topik.text.toString(),
                     spinner_prompt.selectedItem.toString(),
                     spinner_mastery.selectedItem.toString(),
                     edt_respon_anak.text.toString(),
                     edt_tindak_lanjut.text.toString(),
-                    Timestamp.now()
+                    Date()
                 )
 
                 ref.document(id)
                     .set(progress)
                     .addOnSuccessListener {
-                        Toast.makeText(this, "Berhasil menambahkan progress terapi!", Toast.LENGTH_LONG).show()
+                        hideLoading()
+                        Toast.makeText(this, "Berhasil menambahkan hasil terapi!", Toast.LENGTH_LONG).show()
                         finish()
                     }
                     .addOnFailureListener {
+                        hideLoading()
                         Toast.makeText(this, it.localizedMessage, Toast.LENGTH_LONG).show()
                     }
 

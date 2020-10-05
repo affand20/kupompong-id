@@ -66,7 +66,7 @@
             style="@style/BaseHelvMedium.TextRegular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Data Terapi Baru"
+            android:text="Data Terapi Terbaru"
             android:textColor="@color/white"
             android:layout_marginStart="24dp"
             android:textSize="16sp"
