@@ -14,12 +14,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.terapi.chooser.ChooserAnakActivity"></activity>
+        <activity android:name=".ui.progress.ProgressTerapiActivity"></activity>
+        <activity android:name=".ui.progress.detail.DetailProgressActivity" />
+        <activity android:name=".ui.progress.tambah.InputProgressTerapiActivity" />
         <activity
             android:name=".ui.materi.tambah.TambahMateriActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".ui.anak.detail.DetailAnakActivity" />
-        <activity android:name=".ui.terapi.fase4.Fase4Activity" />
+        <activity android:name=".ui.terapi.fase.Fase4Activity" />
+        <activity android:name=".ui.terapi.fase.Fase56Activity" />
         <activity
             android:name=".ui.register.RegisterActivity"
             android:windowSoftInputMode="adjustPan" />

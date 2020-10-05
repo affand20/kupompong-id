@@ -17,7 +17,7 @@ import id.trydev.kupompong.model.Fase
 import id.trydev.kupompong.model.PilihanMateri
 import id.trydev.kupompong.utils.GlideApp
 
-class JawabanFaseAdapter(private val context: Context, private val fase: Fase, val onClick: (PilihanMateri) -> Unit): RecyclerView.Adapter<JawabanFaseAdapter.ViewHolder>() {
+class JawabanFaseAdapter(private val context: Context, private val faseItem: Fase, val onClick: (PilihanMateri) -> Unit): RecyclerView.Adapter<JawabanFaseAdapter.ViewHolder>() {
 
     private val listPilihan = mutableListOf<PilihanMateri>()
     fun setData(listPilihan: List<PilihanMateri>) {
@@ -28,6 +28,16 @@ class JawabanFaseAdapter(private val context: Context, private val fase: Fase, v
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
+        if (faseItem.fase != 4) {
+            return if (faseItem.level != 1) {
+                ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_pilihan_jawaban_fase56_lv2, parent, false))
+            } else {
+                ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_pilihan_jawaban_fase56_lv1, parent, false))
+            }
+        }
+        if (faseItem.level != 1) {
+            return ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_pilihan_jawaban_fase_lv2, parent, false))
+        }
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_pilihan_jawaban_fase_lv1, parent, false))
     }
 
@@ -45,12 +55,14 @@ class JawabanFaseAdapter(private val context: Context, private val fase: Fase, v
 
         fun bindItem(item: PilihanMateri) {
             tvCaption.text = item.caption
-            inputImage.setPadding(0)
-            GlideApp.with(context)
-                .asBitmap()
-                .load(item.imgUrl)
-                .transform(CenterCrop(), RoundedCorners(context.resources.getDimensionPixelSize(R.dimen.cover_materi)))
-                .into(inputImage)
+            if (faseItem.level == 1) {
+                inputImage.setPadding(0)
+                GlideApp.with(context)
+                    .asBitmap()
+                    .load(item.imgUrl)
+                    .transform(CenterCrop(), RoundedCorners(context.resources.getDimensionPixelSize(R.dimen.cover_materi)))
+                    .into(inputImage)
+            }
 
             itemBody.setOnClickListener {
                 onClick(item)

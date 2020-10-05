@@ -3,6 +3,7 @@ package id.trydev.kupompong.ui.materi.tambah
 import android.Manifest
 import android.app.Activity
 import android.content.Intent
+import android.media.AudioAttributes
 import android.media.MediaPlayer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -63,6 +64,12 @@ class TambahMateriActivity : AppCompatActivity(), EasyPermissions.PermissionCall
         parentKey = intent?.getStringExtra("materiId").toString()
 
         player = MediaPlayer()
+        player.setAudioAttributes(
+            AudioAttributes
+                .Builder()
+                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                .build()
+        )
 
         adapter = PilihanAdapter(this) { item, view ->
             val popup = PopupMenu(this, view)
@@ -163,16 +170,18 @@ class TambahMateriActivity : AppCompatActivity(), EasyPermissions.PermissionCall
                 if (!player.isPlaying) {
                     player.reset()
 
-                    if (audioUri == null) {
-                        player.setDataSource(pilihan?.audioUrl)
-                    } else {
-                        player.setDataSource(this, audioUri.toString().toUri())
-                    }
-
                     player.setOnPreparedListener {
                         player.start()
                     }
-                    player.prepare()
+
+                    if (audioUri == null) {
+                        player.setDataSource(pilihan?.audioUrl)
+                        player.prepareAsync()
+                    } else {
+                        player.setDataSource(this, audioUri.toString().toUri())
+                        player.prepare()
+                    }
+
                 } else {
                     player.stop()
                 }

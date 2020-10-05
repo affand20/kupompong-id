@@ -23,13 +23,12 @@ import id.trydev.kupompong.adapter.MateriAdapterLite
 import id.trydev.kupompong.model.Anak
 import id.trydev.kupompong.model.Fase
 import id.trydev.kupompong.model.Materi
-import id.trydev.kupompong.ui.terapi.fase4.Fase4Activity
+import id.trydev.kupompong.ui.terapi.fase.Fase4Activity
+import id.trydev.kupompong.ui.terapi.fase.Fase56Activity
 import id.trydev.kupompong.utils.GlideApp
 import kotlinx.android.synthetic.main.fragment_terapi.*
 
 class TerapiFragment : Fragment() {
-
-    private lateinit var terapiViewModel: TerapiViewModel
 
     private val mFirestore = FirebaseFirestore.getInstance()
 
@@ -49,9 +48,9 @@ class TerapiFragment : Fragment() {
 
     private lateinit var dialog: AlertDialog
 
-    private lateinit var anak: Anak
-    private lateinit var materi: Materi
-    private lateinit var fase: Fase
+    private var anak: Anak? = null
+    private var materi: Materi? = null
+    private var fase: Fase? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -92,8 +91,6 @@ class TerapiFragment : Fragment() {
         adapterFase = FaseAdapter(requireContext()) {
             this.fase = it
             dialog.dismiss()
-
-//            Log.d("PILIH FASE", "${this.fase.level} == 4 ? ${this.fase.level == 4}, ${this.fase.level is Int}")
 
             tv_fase_level.visibility = View.GONE
             pilihan_fase_level.visibility = View.VISIBLE
@@ -146,11 +143,7 @@ class TerapiFragment : Fragment() {
 
         btn_start_terapi.setOnClickListener {
             if (validate()) {
-//                Log.d("ANAK", "${this.anak}")
-//                Log.d("MATERI", "${this.materi}")
-//                Log.d("FASE", "${this.fase}")
-//                Log.d("CLICK", "FASE ${this.fase.level} ${this.fase.level==4}")
-                when(this.fase.fase) {
+                when(this.fase?.fase) {
                     4 -> {
                         Log.d("MASUK", "MASUK WOI")
                         startActivity(
@@ -163,7 +156,7 @@ class TerapiFragment : Fragment() {
 
                     5 -> {
                         startActivity(
-                            Intent(requireContext(), Fase4Activity::class.java)
+                            Intent(requireContext(), Fase56Activity::class.java)
                                 .putExtra("anak", anak)
                                 .putExtra("materi", materi)
                                 .putExtra("fase", this.fase)
@@ -172,7 +165,7 @@ class TerapiFragment : Fragment() {
 
                     6 -> {
                         startActivity(
-                            Intent(requireContext(), Fase4Activity::class.java)
+                            Intent(requireContext(), Fase56Activity::class.java)
                                 .putExtra("anak", anak)
                                 .putExtra("materi", materi)
                                 .putExtra("fase", this.fase)
@@ -246,16 +239,19 @@ class TerapiFragment : Fragment() {
         dialog = builder.create()
         dialog.setOnShowListener {
             if (type == "anak") {
+                this.anak = null
                 tv_anak.visibility = View.VISIBLE
                 pilihan_anak.visibility = View.GONE
                 getData(type)
             }
             else if (type == "materi") {
+                this.materi = null
                 tv_template_materi.visibility = View.VISIBLE
                 pilihan_materi.visibility = View.GONE
                 getData(type)
             }
             if (type == "fase") {
+                this.fase = null
                 tv_fase_level.visibility = View.VISIBLE
                 pilihan_fase_level.visibility = View.GONE
             }

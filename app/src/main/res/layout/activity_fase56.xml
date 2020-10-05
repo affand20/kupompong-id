@@ -35,10 +35,10 @@
         android:layout_width="0dp"
         android:layout_height="20dp"
         android:background="@color/text_disable"
-        app:layout_constraintBottom_toBottomOf="@+id/textView11"
+        app:layout_constraintBottom_toBottomOf="@+id/pilihan_jawaban_2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView11" />
+        app:layout_constraintTop_toTopOf="@+id/pilihan_jawaban_2" />
 
     <TextView
         android:id="@+id/tv_fase4_title"
@@ -46,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:text="Fase 4"
+        android:text="Fase 5"
         app:layout_constraintBottom_toBottomOf="@+id/btn_back"
         app:layout_constraintStart_toEndOf="@+id/btn_back"
         app:layout_constraintTop_toTopOf="@+id/btn_back" />
@@ -64,8 +64,43 @@
         app:layout_constraintEnd_toEndOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Spinner
+        android:id="@+id/spinnner_pertanyaan"
+        android:layout_width="0dp"
+        style="@style/BaseHelvRoman"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toStartOf="@+id/view4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    <ImageButton
+        android:id="@+id/btn_play_soal"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_square_round_black"
+        android:padding="8dp"
+        android:src="@drawable/ic_sound_on"
+        app:layout_constraintBottom_toBottomOf="@+id/spinnner_pertanyaan"
+        app:layout_constraintTop_toTopOf="@+id/spinnner_pertanyaan" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="32dp"
+        android:background="@color/colorBlackTrans"
+        app:layout_constraintBottom_toBottomOf="@+id/spinnner_pertanyaan"
+        app:layout_constraintEnd_toStartOf="@+id/btn_play_soal"
+        app:layout_constraintTop_toTopOf="@+id/spinnner_pertanyaan"
+        app:layout_constraintVertical_bias="0.0" />
+
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/pilihan_jawaban_1"
         style="@style/BaseHelvHeavy"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -73,35 +108,35 @@
         android:background="@drawable/outlined_box_question"
         android:gravity="center_horizontal|center_vertical"
         android:padding="8dp"
-        android:text="AKU"
+        android:text="..."
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView11"
-        app:layout_constraintEnd_toStartOf="@+id/textView11"
+        app:layout_constraintBottom_toBottomOf="@+id/pilihan_jawaban_2"
+        app:layout_constraintEnd_toStartOf="@+id/pilihan_jawaban_2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/pilihan_jawaban_2"
         style="@style/BaseHelvHeavy"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/outlined_box_question"
         android:gravity="center_horizontal|center_vertical"
         android:padding="8dp"
-        android:text="MAU"
+        android:text="..."
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_pilihan_jawaban"
-        app:layout_constraintEnd_toStartOf="@+id/tv_pilihan_jawaban"
+        app:layout_constraintBottom_toBottomOf="@+id/pilihan_jawaban_3"
+        app:layout_constraintEnd_toStartOf="@+id/pilihan_jawaban_3"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView10" />
+        app:layout_constraintStart_toEndOf="@+id/pilihan_jawaban_1" />
 
     <TextView
-        android:id="@+id/tv_pilihan_jawaban"
+        android:id="@+id/pilihan_jawaban_3"
         style="@style/BaseHelvHeavy"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -116,18 +151,18 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintStart_toEndOf="@+id/pilihan_jawaban_2"
+        app:layout_constraintTop_toBottomOf="@+id/spinnner_pertanyaan" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/pilihan_jawaban"
         android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_pilihan_jawaban"
-        app:layout_constraintEnd_toEndOf="@+id/tv_pilihan_jawaban"
-        app:layout_constraintStart_toStartOf="@+id/tv_pilihan_jawaban"
-        app:layout_constraintTop_toTopOf="@+id/tv_pilihan_jawaban">
+        app:layout_constraintBottom_toBottomOf="@+id/pilihan_jawaban_3"
+        app:layout_constraintEnd_toEndOf="@+id/pilihan_jawaban_3"
+        app:layout_constraintStart_toStartOf="@+id/pilihan_jawaban_3"
+        app:layout_constraintTop_toTopOf="@+id/pilihan_jawaban_3">
 
         <ImageView
             android:id="@+id/iv_img"
@@ -159,16 +194,6 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--    <ImageButton-->
-<!--        android:visibility="gone"-->
-<!--        android:id="@+id/btn_remove_pilihan"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@drawable/btn_circle_accent"-->
-<!--        android:src="@drawable/ic_close"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/tv_pilihan_jawaban"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/tv_pilihan_jawaban"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/tv_pilihan_jawaban" />-->
 
     <ImageButton
         android:id="@+id/btn_play"
@@ -181,7 +206,7 @@
         app:layout_constraintEnd_toStartOf="@+id/btn_reset"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btn_timer"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/pilihan_jawaban_2" />
 
     <ImageButton
         android:id="@+id/btn_reset"
@@ -237,21 +262,151 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_timer" />
 
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view1"
+        android:paddingTop="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="0dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/ans_aku"
+                style="@style/BaseHelvHeavy"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:background="@drawable/outlined_box_question"
+                android:gravity="center_horizontal|center_vertical"
+                android:padding="8dp"
+                android:text="AKU"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ans_saya"
+                style="@style/BaseHelvHeavy"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:background="@drawable/outlined_box_question"
+                android:gravity="center_horizontal|center_vertical"
+                android:padding="8dp"
+                android:layout_marginTop="16dp"
+                android:text="SAYA"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ans_aku" />
+
+            <TextView
+                android:id="@+id/ans_kamu"
+                style="@style/BaseHelvHeavy"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:background="@drawable/outlined_box_question"
+                android:gravity="center_horizontal|center_vertical"
+                android:padding="8dp"
+                android:layout_marginTop="16dp"
+                android:text="KAMU"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ans_saya" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view2"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:paddingTop="24dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/scroll_view1"
+        app:layout_constraintTop_toBottomOf="@+id/textView13">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/ans_mau"
+                style="@style/BaseHelvHeavy"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:background="@drawable/outlined_box_question"
+                android:gravity="center_horizontal|center_vertical"
+                android:padding="8dp"
+                android:text="MAU"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ans_ingin"
+                style="@style/BaseHelvHeavy"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/outlined_box_question"
+                android:gravity="center_horizontal|center_vertical"
+                android:padding="8dp"
+                android:text="INGIN"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ans_mau" />
+
+            <TextView
+                android:id="@+id/ans_tdk_ingin"
+                style="@style/BaseHelvHeavy"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/outlined_box_question"
+                android:gravity="center_horizontal|center_vertical"
+                android:padding="8dp"
+                android:text="TIDAK INGIN"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ans_ingin" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
     <androidx.recyclerview.widget.RecyclerView
+        android:paddingTop="24dp"
         android:id="@+id/rv_item_jawaban"
         android:layout_width="0dp"
-        android:visibility="invisible"
         android:layout_height="0dp"
         android:nestedScrollingEnabled="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/scroll_view2"
         app:layout_constraintTop_toBottomOf="@+id/textView13"
         app:spanCount="2"
         tools:itemCount="10"
         tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        tools:listitem="@layout/item_pilihan_jawaban" />
+        tools:listitem="@layout/item_pilihan_jawaban_fase_lv2"
+         />
 
     <ProgressBar
         android:visibility="gone"

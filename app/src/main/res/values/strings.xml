@@ -16,4 +16,22 @@
         <item>Fase 6 - Level 2</item>
         <item>Fase 6 - Level 3</item>
     </string-array>
+    <string-array name="list_pertanyaan_lv5">
+        <item>Kamu mau makan apa?</item>
+        <item>Kamu mau olahraga apa?</item>
+    </string-array>
+    <string-array name="list_pertanyaan_lv6">
+        <item>Kamu mau olahraga apa?</item>
+        <item>Kamu mau makan apa?</item>
+    </string-array>
+    <string-array name="level_of_prompt">
+        <item>Full Prompt</item>
+        <item>Physical Prompt</item>
+        <item>Verbal Prompt</item>
+    </string-array>
+    <string-array name="level_of_mastery">
+        <item>Not Present</item>
+        <item>Constricted</item>
+        <item>Mastered</item>
+    </string-array>
 </resources>
