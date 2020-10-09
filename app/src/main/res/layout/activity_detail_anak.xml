@@ -372,6 +372,21 @@
                 app:layout_constraintTop_toBottomOf="@+id/edt_riwayat_terapi" />
 
             <Button
+                android:id="@+id/btn_terapi"
+                style="@style/BaseHelvHeavy.TitleText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/round_primary_btn"
+                android:text="Lihat Data Terapi"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edt_medical_treatment" />
+
+            <Button
                 android:id="@+id/btn_submit"
                 style="@style/BaseHelvHeavy.TitleText"
                 android:layout_width="0dp"
@@ -386,7 +401,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edt_medical_treatment" />
+                app:layout_constraintTop_toBottomOf="@id/btn_terapi" />
 
             <Button
                 android:id="@+id/btn_delete"
@@ -403,7 +418,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edt_medical_treatment" />
+                app:layout_constraintTop_toBottomOf="@id/btn_terapi" />
 
             <ProgressBar
                 android:id="@+id/progress_bar"

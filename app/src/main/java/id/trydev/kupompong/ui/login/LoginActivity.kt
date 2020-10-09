@@ -29,7 +29,7 @@ class LoginActivity : AppCompatActivity() {
 
         prefs = SharedPrefs(this)
 
-        redirect(prefs)
+//        redirect(prefs)
 
         to_register.setOnClickListener {
             startActivity(
@@ -61,14 +61,14 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun redirect(prefs: SharedPrefs) {
-        if (prefs.userId!=null && prefs.userEmail!=null){
-            startActivity(
-                Intent(this, MainActivity::class.java)
-            )
-            finish()
-        }
-    }
+//    private fun redirect(prefs: SharedPrefs) {
+//        if (prefs.userId!=null && prefs.userEmail!=null){
+//            startActivity(
+//                Intent(this, MainActivity::class.java)
+//            )
+//            finish()
+//        }
+//    }
 
     private fun showLoading() {
         progress_bar.visibility = View.VISIBLE

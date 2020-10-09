@@ -238,6 +238,13 @@ class DetailAnakActivity : AppCompatActivity(), EasyPermissions.PermissionCallba
             }
         }
 
+        btn_terapi.setOnClickListener {
+            startActivity(
+                Intent(this, DataTerapiActivity::class.java)
+                    .putExtra("idAnak", data.id)
+            )
+        }
+
     }
 
     private fun loadUpdatedData() {

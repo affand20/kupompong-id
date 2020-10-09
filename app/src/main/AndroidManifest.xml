@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_new"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.panduan.PanduanActivity"></activity>
+        <activity android:name=".ui.anak.detail.DataTerapiActivity"></activity>
+        <activity android:name=".ui.panduan.PanduanActivity" />
         <activity android:name=".ui.tentang.TentangActivity" />
         <activity android:name=".ui.progress.ProgressTerapiActivity" />
         <activity android:name=".ui.progress.detail.DetailProgressActivity" />
@@ -31,11 +32,7 @@
         <activity
             android:name=".ui.login.LoginActivity"
             android:windowSoftInputMode="adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ui.anak.tambah.TambahAnakActivity"
@@ -43,7 +40,13 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main2" />
-        <activity android:name=".SplashActivity" />
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
