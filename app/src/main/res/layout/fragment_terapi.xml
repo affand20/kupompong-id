@@ -21,13 +21,47 @@
 
         <!--Logo Placeholder-->
         <View
+            android:id="@+id/view6"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:background="@color/white"
-            android:layout_marginEnd="24dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@mipmap/ic_launcher_new"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:layout_marginEnd="24dp"
+            android:id="@+id/btn_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_logout"
+            app:layout_constraintBottom_toBottomOf="@+id/view6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view6" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_about"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_about"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toStartOf="@id/btn_logout"
+            app:layout_constraintBottom_toBottomOf="@+id/view6"
+            app:layout_constraintTop_toTopOf="@+id/view6" />
+
+        <ImageButton
+            android:id="@+id/btn_guide"
+            android:layout_marginEnd="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_guide"
+            app:layout_constraintBottom_toBottomOf="@+id/view6"
+            app:layout_constraintEnd_toStartOf="@+id/btn_about"
+            app:layout_constraintTop_toTopOf="@+id/view6" />
 
         <ImageView
             android:id="@+id/cv_data_terapi"

@@ -17,7 +17,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import id.trydev.kupompong.MainActivity
 import id.trydev.kupompong.R
 import id.trydev.kupompong.adapter.DaftarAnakAdapterLite
 import id.trydev.kupompong.adapter.FaseAdapter
@@ -25,7 +27,11 @@ import id.trydev.kupompong.adapter.MateriAdapterLite
 import id.trydev.kupompong.model.Anak
 import id.trydev.kupompong.model.Fase
 import id.trydev.kupompong.model.Materi
+import id.trydev.kupompong.prefs.SharedPrefs
+import id.trydev.kupompong.ui.login.LoginActivity
+import id.trydev.kupompong.ui.panduan.PanduanActivity
 import id.trydev.kupompong.ui.progress.ProgressTerapiActivity
+import id.trydev.kupompong.ui.tentang.TentangActivity
 import id.trydev.kupompong.ui.terapi.fase.Fase4Activity
 import id.trydev.kupompong.ui.terapi.fase.Fase56Activity
 import id.trydev.kupompong.utils.GlideApp
@@ -43,7 +49,6 @@ class TerapiFragment : Fragment() {
     private lateinit var adapterMateri: MateriAdapterLite
     private lateinit var adapterFase: FaseAdapter
 
-    private lateinit var btnFilter: ImageButton
     private lateinit var searchBox: EditText
     private lateinit var recyclerView: RecyclerView
     private lateinit var progressBar: ProgressBar
@@ -55,6 +60,9 @@ class TerapiFragment : Fragment() {
     private var materi: Materi? = null
     private var fase: Fase? = null
 
+    private lateinit var prefs: SharedPrefs
+    private val mAuth = FirebaseAuth.getInstance()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -65,6 +73,8 @@ class TerapiFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        prefs = SharedPrefs(requireContext())
 
         adapterAnak = DaftarAnakAdapterLite(requireContext()) {
             this.anak = it
@@ -198,6 +208,31 @@ class TerapiFragment : Fragment() {
             }
         }
 
+        btn_logout.setOnClickListener {
+            prefs.resetPrefs()
+            mAuth.signOut()
+            startActivity(
+                Intent(
+                    requireContext(), LoginActivity::class.java
+                )
+            )
+            MainActivity().finish()
+        }
+
+        btn_about.setOnClickListener {
+            startActivity(
+                Intent(requireContext(), TentangActivity::class.java)
+            )
+        }
+
+        btn_guide.setOnClickListener {
+            startActivity(
+                Intent(
+                    requireContext(), PanduanActivity::class.java
+                )
+            )
+        }
+
     }
 
     private fun validate(): Boolean {
@@ -224,7 +259,6 @@ class TerapiFragment : Fragment() {
         if (type == "anak") {
             val dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.dialog_pilih_anak, null)
 
-            btnFilter = dialogView.findViewById(R.id.btn_filter)
             searchBox = dialogView.findViewById(R.id.edt_search)
             recyclerView = dialogView.findViewById(R.id.rv_anak)
             progressBar = dialogView.findViewById(R.id.progress_bar)

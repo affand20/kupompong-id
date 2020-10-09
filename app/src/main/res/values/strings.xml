@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">Kupompong</string>
+    <string name="app_name">Terapi Komunikasi PECS</string>
     <string name="title_activity_main2">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="greeting">Hai, Yofan Ardian</string>
+    <string name="greeting">Selamat Datang!</string>
     <string-array name="pilihan_fase">
         <item>Fase 4 - Level 1</item>
         <item>Fase 4 - Level 2</item>

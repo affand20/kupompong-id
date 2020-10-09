@@ -99,6 +99,26 @@ class Fase4Activity : AppCompatActivity() {
             tv_timer.visibility = View.VISIBLE
         }
 
+        if (fase.level == 1) {
+            pilihan_aku.visibility = View.VISIBLE
+            pilihan_mau.visibility = View.VISIBLE
+
+            iv_pilihan_aku.setPadding(0)
+            iv_pilihan_mau.setPadding(0)
+
+            GlideApp.with(this)
+                .asBitmap()
+                .load(R.drawable.aku)
+                .transform(CenterCrop(), RoundedCorners(resources.getDimensionPixelSize(R.dimen.cover_materi)))
+                .into(iv_pilihan_aku)
+
+            GlideApp.with(this)
+                .asBitmap()
+                .load(R.drawable.mau)
+                .transform(CenterCrop(), RoundedCorners(resources.getDimensionPixelSize(R.dimen.cover_materi)))
+                .into(iv_pilihan_mau)
+        }
+
         adapter = JawabanFaseAdapter(this, fase) {
             this.pilihanMateri = it
 

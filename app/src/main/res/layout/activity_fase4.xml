@@ -83,6 +83,45 @@
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pilihan_aku"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/textView10"
+        app:layout_constraintEnd_toEndOf="@+id/textView10"
+        app:layout_constraintStart_toStartOf="@+id/textView10"
+        app:layout_constraintTop_toTopOf="@+id/textView10">
+
+        <ImageView
+            android:id="@+id/iv_pilihan_aku"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/round_img_input_materi"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_clip_materi_item"
+            android:paddingStart="2dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="2dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:text="Aku"
+            android:textColorHint="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_pilihan_aku"
+            app:layout_constraintEnd_toEndOf="@+id/iv_pilihan_aku"
+            app:layout_constraintStart_toStartOf="@+id/iv_pilihan_aku"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <TextView
         android:id="@+id/textView11"
         style="@style/BaseHelvHeavy"
@@ -99,6 +138,45 @@
         app:layout_constraintEnd_toStartOf="@+id/tv_pilihan_jawaban"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView10" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pilihan_mau"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/textView11"
+        app:layout_constraintEnd_toEndOf="@+id/textView11"
+        app:layout_constraintStart_toStartOf="@+id/textView11"
+        app:layout_constraintTop_toTopOf="@+id/textView11">
+
+        <ImageView
+            android:id="@+id/iv_pilihan_mau"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/round_img_input_materi"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_clip_materi_item"
+            android:paddingStart="2dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="2dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:text="Aku"
+            android:textColorHint="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_pilihan_mau"
+            app:layout_constraintEnd_toEndOf="@+id/iv_pilihan_mau"
+            app:layout_constraintStart_toStartOf="@+id/iv_pilihan_mau"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/tv_pilihan_jawaban"
