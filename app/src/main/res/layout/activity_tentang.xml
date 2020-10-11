@@ -73,7 +73,7 @@
         android:textAlignment="center"
         android:layout_marginTop="60dp"
         style="@style/BaseHelvRoman"
-        android:text="Aplikasi Terapi Komunikasi PECS adalah aplikasi untuk membantu proses terapi anak dengan gangguan komunikasi. Aplikasi ini dibangun oleh Yofan Ardian Muslim, program studi S-1 Sistem Informasi, fakultas Sains dan Teknologi, Universitas Airlangga. Dengan bimbingan dari Ira Puspitasari, S.T., M.T., Ph.D. dan arahan dari dari CEO Terapi Komunikasi PECS.id, Yofan dapat membangun aplikasi ini guna mempermudah terapis dalam melakukan sesi terapi."
+        android:text="Aplikasi Terapi Komunikasi PECS adalah aplikasi untuk membantu proses terapi anak dengan gangguan komunikasi. Aplikasi ini dibangun oleh Yofan Ardian Muslim, program studi S-1 Sistem Informasi, fakultas Sains dan Teknologi, Universitas Airlangga. Dengan bimbingan dari Ira Puspitasari, S.T., M.T., Ph.D. dan arahan dari Elisabeth Santoso, M. Psi., Psikolog selaku CEO Kupompong.id, Yofan dapat membangun aplikasi ini guna mempermudah terapis dalam melakukan sesi terapi."
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
