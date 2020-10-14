@@ -43,11 +43,14 @@ class ProgressTerapiAdapter(private val context: Context, val onClick: (HasilTer
         private val tvName = view.findViewById<TextView>(R.id.tv_name)
         private val tvTopik = view.findViewById<TextView>(R.id.tv_topik)
         private val tvDate = view.findViewById<TextView>(R.id.tv_date)
+        private val tvUpdatedAt = view.findViewById<TextView>(R.id.tv_updated_at)
 
         fun bindItem(item: HasilTerapi) {
             tvName.text = item.namaAnak
             tvTopik.text = item.topik
-            tvDate.text = SimpleDateFormat("E,dd MM yyyy", Locale("id", "ID")).format(item.dateTerapi)
+            tvDate.text = "Dibuat pada ${SimpleDateFormat("dd-MM-yyyy HH:mm", Locale("id", "ID")).format(item.dateTerapi)}"
+            tvUpdatedAt.text = "Terakhir diupdate ${SimpleDateFormat("dd-MM-yyyy HH:mm", Locale("id", "ID")).format(item.updatedAt)}"
+
 
             itemBody.setOnClickListener { onClick(item) }
         }

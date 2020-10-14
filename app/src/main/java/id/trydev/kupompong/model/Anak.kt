@@ -1,6 +1,8 @@
 package id.trydev.kupompong.model
 
+import com.google.firebase.firestore.ServerTimestamp
 import java.io.Serializable
+import java.util.*
 
 data class Anak (
 
@@ -19,6 +21,10 @@ data class Anak (
     var history: String? = null,
     var medicalTreatment: String? = null,
     var imgPath: String? = null,
-    var photoUrl: String? = null
+    var photoUrl: String? = null,
+    @ServerTimestamp
+    var createdAt: Date? = null,
+    @ServerTimestamp
+    var updatedAt: Date? = null
 
 ): Serializable

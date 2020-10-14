@@ -37,6 +37,7 @@ import kotlinx.android.synthetic.main.activity_anak.radioGroup
 import pub.devrel.easypermissions.AfterPermissionGranted
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
+import java.util.*
 
 class TambahAnakActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
@@ -100,7 +101,9 @@ class TambahAnakActivity : AppCompatActivity(), EasyPermissions.PermissionCallba
                                 edt_riwayat_terapi.text.toString(),
                                 edt_medical_treatment.text.toString(),
                                 storagePath,
-                                it.result.toString()
+                                it.result.toString(),
+                                Date(),
+                                Date()
                             )
                             dataPath.document(key)
                                 .set(anak)

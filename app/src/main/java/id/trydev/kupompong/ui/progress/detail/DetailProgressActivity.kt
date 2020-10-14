@@ -12,18 +12,9 @@ import id.trydev.kupompong.R
 import id.trydev.kupompong.model.HasilTerapi
 import id.trydev.kupompong.utils.GlideApp
 import id.trydev.kupompong.utils.Mode
-import kotlinx.android.synthetic.main.activity_detail_progress.btn_delete
-import kotlinx.android.synthetic.main.activity_detail_progress.btn_back
-import kotlinx.android.synthetic.main.activity_detail_progress.btn_submit
-import kotlinx.android.synthetic.main.activity_detail_progress.btn_toggle_mode
-import kotlinx.android.synthetic.main.activity_detail_progress.edt_respon_anak
-import kotlinx.android.synthetic.main.activity_detail_progress.edt_tindak_lanjut
-import kotlinx.android.synthetic.main.activity_detail_progress.edt_topik
-import kotlinx.android.synthetic.main.activity_detail_progress.img_profil
-import kotlinx.android.synthetic.main.activity_detail_progress.progress_bar
-import kotlinx.android.synthetic.main.activity_detail_progress.spinner_mastery
-import kotlinx.android.synthetic.main.activity_detail_progress.spinner_prompt
-import kotlinx.android.synthetic.main.activity_detail_progress.tv_nama_pasien
+import kotlinx.android.synthetic.main.activity_detail_progress.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class DetailProgressActivity : AppCompatActivity() {
 
@@ -106,6 +97,7 @@ class DetailProgressActivity : AppCompatActivity() {
                         setItem(hasilTerapi)
                         hideLoading()
                     } else {
+                        mapUpdate["updatedAt"] = Date()
                         mFirestore.collection("hasil_terapi")
                             .document(hasilTerapi?.id.toString())
                             .update(mapUpdate)
@@ -175,6 +167,8 @@ class DetailProgressActivity : AppCompatActivity() {
         spinner_mastery.setSelection(listMasteryLevel.indexOf(data?.levelOfMastery))
         edt_respon_anak.setText(data?.responAnak)
         edt_tindak_lanjut.setText(data?.tindakLanjut)
+        tv_created_at.text = "Dibuat pada ${SimpleDateFormat("dd-MM-yyyy HH:mm", Locale("id", "ID")).format(data?.dateTerapi)}"
+        tv_updated_at.text = "Dibuat pada ${SimpleDateFormat("dd-MM-yyyy HH:mm", Locale("id", "ID")).format(data?.updatedAt)}"
     }
 
     private fun validate(): Boolean {

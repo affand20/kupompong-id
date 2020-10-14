@@ -15,6 +15,7 @@ import id.trydev.kupompong.R
 import id.trydev.kupompong.model.Anak
 import id.trydev.kupompong.utils.GlideApp
 import id.trydev.kupompong.utils.GlideModule
+import java.text.SimpleDateFormat
 
 class DaftarAnakAdapter(private val context: Context, val onClick: (Anak)->Unit): RecyclerView.Adapter<DaftarAnakAdapter.ViewHolder>() {
 
@@ -43,11 +44,15 @@ class DaftarAnakAdapter(private val context: Context, val onClick: (Anak)->Unit)
         private val tvName = view.findViewById<TextView>(R.id.tv_name)
         private val tvTtl = view.findViewById<TextView>(R.id.tv_ttl)
         private val tvAddress = view.findViewById<TextView>(R.id.tv_address)
+        private val tvCreatedAt = view.findViewById<TextView>(R.id.tv_created_at)
+        private val tvUpdatedAt = view.findViewById<TextView>(R.id.tv_updated_at)
 
         fun bindItem(item: Anak) {
             tvName.text = item.fullName
             tvTtl.text = "${item.birthPlace}, ${item.dateOfBirth}"
             tvAddress.text = item.address
+            tvCreatedAt.text = "Dibuat pada ${SimpleDateFormat("dd/MM/yyyy HH:mm").format(item.createdAt)}"
+            tvUpdatedAt.text = "Terakhir diperbarui ${SimpleDateFormat("dd/MM/yyyy HH:mm").format(item.updatedAt)}"
             GlideApp.with(context)
                 .asBitmap()
                 .load(item.photoUrl)

@@ -19,6 +19,8 @@ data class HasilTerapi (
     var responAnak: String? = null,
     var tindakLanjut: String? = null,
     @ServerTimestamp
-    var dateTerapi: Date? = null
+    var dateTerapi: Date? = null,
+    @ServerTimestamp
+    var updatedAt: Date? = null
 
 ): Serializable

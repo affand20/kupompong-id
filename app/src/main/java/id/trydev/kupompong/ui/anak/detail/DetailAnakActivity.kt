@@ -40,6 +40,8 @@ import kotlinx.android.synthetic.main.activity_detail_anak.progress_bar
 import pub.devrel.easypermissions.AfterPermissionGranted
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
+import java.text.SimpleDateFormat
+import java.util.*
 
 class DetailAnakActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
@@ -165,6 +167,8 @@ class DetailAnakActivity : AppCompatActivity(), EasyPermissions.PermissionCallba
                         disableInput()
                     } else {
 
+                        mapUpdate["updatedAt"] = Date()
+
                         if (imageUri != null) {
 
                             val path = "${data.imgPath?.split("/")?.dropLast(1)}/"
@@ -285,6 +289,9 @@ class DetailAnakActivity : AppCompatActivity(), EasyPermissions.PermissionCallba
         edt_gejala.setText(item.gejala)
         edt_riwayat_terapi.setText(item.history)
         edt_medical_treatment.setText(item.medicalTreatment)
+
+        tv_created_at.text = "Dibuat pada ${SimpleDateFormat("dd/MM/yyyy HH:mm").format(item.createdAt)}"
+        tv_updated_at.text = "Terakhir diperbarui ${SimpleDateFormat("dd/MM/yyyy HH:mm").format(item.updatedAt)}"
 
         GlideApp.with(this)
             .asBitmap()

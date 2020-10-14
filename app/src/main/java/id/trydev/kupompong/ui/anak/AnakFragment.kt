@@ -227,6 +227,7 @@ class AnakFragment : Fragment() {
         showLoading()
 
         mFirestore.collection("anak")
+            .orderBy("createdAt", Query.Direction.DESCENDING)
             .get()
             .addOnSuccessListener {
                 hideLoading()

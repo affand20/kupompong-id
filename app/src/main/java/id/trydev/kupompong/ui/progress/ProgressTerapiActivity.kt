@@ -17,6 +17,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import id.trydev.kupompong.R
 import id.trydev.kupompong.adapter.ProgressTerapiAdapter
 import id.trydev.kupompong.model.HasilTerapi
@@ -216,7 +217,7 @@ class ProgressTerapiActivity : AppCompatActivity() {
     private fun getData() {
         showLoading()
         mFirestore.collection("hasil_terapi")
-            .orderBy("dateTerapi")
+            .orderBy("dateTerapi", Query.Direction.DESCENDING)
             .get()
             .addOnSuccessListener {
                 hideLoading()

@@ -101,6 +101,28 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:id="@+id/tv_created_at"
+                style="@style/BaseHelvRoman"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:text="Created At"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_nama_pasien" />
+
+            <TextView
+                android:layout_marginTop="8dp"
+                android:id="@+id/tv_updated_at"
+                style="@style/BaseHelvRoman"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="Updated At"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_created_at" />
+
 
             <EditText
                 android:id="@+id/edt_topik"
@@ -125,11 +147,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="56dp"
                 android:text="Catatan Terapi"
+                android:layout_marginTop="24dp"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_nama_pasien" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_updated_at" />
 
 
             <TextView

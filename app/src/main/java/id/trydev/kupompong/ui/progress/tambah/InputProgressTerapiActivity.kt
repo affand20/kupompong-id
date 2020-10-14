@@ -61,6 +61,7 @@ class InputProgressTerapiActivity : AppCompatActivity() {
                     spinner_mastery.selectedItem.toString(),
                     edt_respon_anak.text.toString(),
                     edt_tindak_lanjut.text.toString(),
+                    Date(),
                     Date()
                 )
 

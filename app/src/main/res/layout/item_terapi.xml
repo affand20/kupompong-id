@@ -45,13 +45,26 @@
             android:id="@+id/tv_topik"
             style="@style/BaseGillSansMedium"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Semarang, 12 Juli 2014"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/text_disable"
             android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/tv_updated_at"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+        <TextView
+            android:id="@+id/tv_updated_at"
+            style="@style/BaseGillSansMedium"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Semarang, 12 Juli 2014"
             android:textColor="@color/text_disable"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
